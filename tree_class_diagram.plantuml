@@ -1,0 +1,58 @@
+@startuml
+
+class Main_page{
+    width: Integer
+
+    dissabled_button()
+}
+
+class Block{
+    width: Integer
+    height: Integer
+}
+
+
+class Menu{
+
+    file_button()
+    new_button()
+    open_button()
+    help_button()
+}
+
+
+class File_menu{
+
+    save_as_text_button(Text_window.text)
+    save_as_img_button(Image_window.img_url)
+}
+
+
+class Text_window{
+    text: String
+
+    generate_button(text)
+    close_tab_button()
+    change_tab_button()
+    color_code()
+}
+
+class Image_window{
+    img_url: String
+
+    change_scale()
+    move_picture()
+}
+
+Menu --|> Block
+File_menu --|> Block
+Text_window --|> Block
+Image_window --|> Block
+
+Menu "file_button()" -- File_menu : > Opens
+Main_page *-- Menu : > contains
+Main_page *-- Text_window : > contains
+Main_page *-- Image_window : > contains
+
+
+@enduml
