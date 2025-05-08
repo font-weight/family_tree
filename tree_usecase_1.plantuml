@@ -1,0 +1,30 @@
+@startuml
+
+actor User
+
+usecase "Open file" as open
+usecase "Create new tree" as create
+usecase "Write code" as write
+usecase "Generate tree" as generate
+usecase "Download tree" as download
+usecase "Download as code" as download_code
+usecase "Download as picture" as download_pic
+usecase "Open AI help menu" as help
+usecase "Enable/disable Disabled mode" as disabled
+
+
+download_code --|> download: <<extends>>
+download_pic --|> download: <<extends>>
+
+
+User -- open
+User -- create
+User -- write
+User -- generate
+User -- download
+User -- download_code
+User -- download_pic
+User -- help
+User -- disabled
+
+@enduml
