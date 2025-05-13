@@ -1,0 +1,57 @@
+@startuml
+
+start
+
+:Launch Application;
+
+:Show Main Interface;
+
+partition "User Interaction" {
+    if (New/Open existing file?) then (New)
+        :Create New Code Tab;
+    else (Open)
+        :Select and Load Saved File;
+    endif
+
+    :Write or Edit Code;
+    :Click "Generate" Button;
+}
+
+:Parse and Render Code to Tree Diagram;
+
+if (Rendering successful?) then (Yes)
+    :Display Tree Image on Left Side;
+else (No)
+    :Show Error Message;
+endif
+
+partition "Optional Actions" {
+
+    if (User wants to download?) then (Yes)
+        :Click "Download" Menu;
+
+        if (Download as?) then (Code)
+            :Download .txt file;
+        else (Picture)
+            :Download .png;
+        endif
+    else (No)
+    endif
+
+
+
+    if (User clicks Help?) then (Yes)
+        :Open ChatGPT Window;
+        :Send Predefined Prompt for Help;
+    else (No)
+    endif
+
+    if (User enables disabled mode?) then (Yes)
+        :Enable Accessibility Features;
+    else (No)
+    endif
+}
+
+stop
+
+@enduml
