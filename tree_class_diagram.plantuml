@@ -21,7 +21,7 @@ class Menu{
 }
 
 
-class File_menu{
+class Save_menu{
 
     save_as_text_button(Text_window.text)
     save_as_img_button(Image_window.img_url)
